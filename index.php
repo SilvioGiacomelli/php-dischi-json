@@ -10,12 +10,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <title>PHP Dischi JSON</title>
 </head>
 
 <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
+    <div class="container-fluid text-center">
       <a class="navbar-brand" href="#">PHP Dischi</a>
     </div>
   </nav>
@@ -27,7 +28,7 @@
           <img class="card-img-top" :src="album.poster" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{ album.title }}</h5>
-            <p class="card-text">{{ album.author }}</p>
+            <p class="card-text author">{{ album.author }}</p>
             <p class="card-text">{{ album.genre }}</p>
             <p class="card-text">{{ album.year }}</p>
           </div>
@@ -41,25 +42,3 @@
 </body>
 
 </html>
-
-<style>
-  body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
-    padding-top: 50px;
-  }
-
-  .card {
-    margin: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-  }
-
-  .navbar {
-    background-color: #343a40;
-  }
-
-  .navbar-brand {
-    color: #fff !important;
-  }
-</style>
