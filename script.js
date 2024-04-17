@@ -3,14 +3,15 @@ createApp({
   data() {
     return {
       title: 'PHP Dischi JSON',
-      apiUrl: 'server.php'
+      apiUrl: 'server.php',
+      list:[]
     }
   },
   methods: {
     getApi() {
       axios.get(this.apiUrl)
       .then(result => {
-        console.log(result.data);
+        this.list = result.data;
       })
     }
   },
