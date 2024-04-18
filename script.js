@@ -21,6 +21,11 @@ createApp({
         this.list = result.data;
       })
     },
+    // funzione per rimuovere un album temopraneamente
+    removeAlbum(index) {
+      this.list.splice(index,1);
+    },
+    // funzione per aggiungere un album
     addAlbum() {
       let data = new FormData();
       data.append('title', this.newAlbum.title);
@@ -29,14 +34,19 @@ createApp({
       data.append('genre', this.newAlbum.genre);
       data.append('poster', this.newAlbum.poster);
     
+      // qui faccio la chiamata post
       axios.post(this.apiUrl, data)
-      .then(result => {
-        console.log(result.data);
+      .then(response => {
+        console.log(response.data);
+        this.list.push(response.data);
+        this.newAlbum = { title: '', author: '', year: '', genre: '', poster: '' };
       }) 
+      .catch(error => {
+        console.log(error);
+      });
     }
   },
   mounted() {
     this.getApi();
-    this.addAlbum();
   }
 }).mount('#app');

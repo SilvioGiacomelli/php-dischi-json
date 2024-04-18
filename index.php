@@ -10,6 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
   <title>PHP Dischi JSON</title>
 </head>
@@ -18,6 +19,11 @@
   <div id="app" class="container mt-5">
     <h1 class="text-center mb-4">{{ title }}</h1>
     <div class="text-white d-flex justify-content-center">
+
+      <div class="d-flex flex-column mx-2">
+        <label class="form-label" for="Poster">Poster</label>
+        <input v-model.trim="newAlbum.poster" class="form-control" type="text" name="Poster">
+      </div>
 
       <div class="d-flex flex-column mx-2">
         <label class="form-label" for="Title">Title</label>
@@ -30,19 +36,15 @@
       </div>
 
       <div class="d-flex flex-column mx-2">
+        <label class="form-label" for="Genre">Genre</label>
+        <input v-model.trim="newAlbum.genre" class="form-control" type="text" name="Genre">
+      </div>
+
+      <div class="d-flex flex-column mx-2">
         <label class="form-label" for="Year">Year</label>
         <input v-model.trim="newAlbum.year" class="form-control" type="text" name="Year">
       </div>
 
-      <div class="d-flex flex-column mx-2">
-        <label v-model.trim="newAlbum.genre" class="form-label" for="Genre">Genre</label>
-        <input class="form-control" type="text" name="Genre">
-      </div>
-
-      <div class="d-flex flex-column mx-2">
-        <label v-model.trim="newAlbum.poster" class="form-label" for="Poster">Poster</label>
-        <input class="form-control" type="text" name="Poster">
-      </div>
 
       <div class=" d-flex align-items-end">
         <button @click="addAlbum" class="btn btn-success ">Aggiungi</button>
@@ -57,6 +59,7 @@
             <p class="card-text author">{{ album.author }}</p>
             <p class="card-text">{{ album.genre }}</p>
             <p class="card-text">{{ album.year }}</p>
+            <button @click="removeAlbum(index)" class="btn trash"><i class="fa-solid fa-trash trash"></i></button>
           </div>
         </div>
       </div>
