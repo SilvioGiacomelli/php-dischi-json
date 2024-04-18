@@ -15,37 +15,37 @@
 </head>
 
 <body>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-    <div class="container-fluid text-center">
-      <a class="navbar-brand" href="#">PHP Dischi</a>
-    </div>
-  </nav>
   <div id="app" class="container mt-5">
     <h1 class="text-center mb-4">{{ title }}</h1>
     <div class="text-white d-flex justify-content-center">
 
       <div class="d-flex flex-column mx-2">
-        <label class="form-label" for="">Title</label>
-        <input class="form-control" type="text" name="">
+        <label class="form-label" for="Title">Title</label>
+        <input v-model.trim="newAlbum.title" class="form-control" type="text" name="Title">
       </div>
 
       <div class="d-flex flex-column mx-2">
-        <label class="form-label" for="">Author</label>
-        <input class="form-control" type="text" name="">
+        <label class="form-label" for="Author">Author</label>
+        <input v-model.trim="newAlbum.author" class="form-control" type="text" name="Author">
       </div>
 
       <div class="d-flex flex-column mx-2">
-        <label class="form-label" for="">Year</label>
-        <input class="form-control" type="text" name="">
+        <label class="form-label" for="Year">Year</label>
+        <input v-model.trim="newAlbum.year" class="form-control" type="text" name="Year">
       </div>
 
       <div class="d-flex flex-column mx-2">
-        <label class="form-label" for="">Genre</label>
-        <input class="form-control" type="text" name="">
+        <label v-model.trim="newAlbum.genre" class="form-label" for="Genre">Genre</label>
+        <input class="form-control" type="text" name="Genre">
+      </div>
+
+      <div class="d-flex flex-column mx-2">
+        <label v-model.trim="newAlbum.poster" class="form-label" for="Poster">Poster</label>
+        <input class="form-control" type="text" name="Poster">
       </div>
 
       <div class=" d-flex align-items-end">
-        <button class="btn btn-success ">Aggiungi</button>
+        <button @click="addAlbum" class="btn btn-success ">Aggiungi</button>
       </div>
     </div>
     <div class="row">
