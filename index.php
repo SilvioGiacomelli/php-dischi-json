@@ -22,6 +22,32 @@
   </nav>
   <div id="app" class="container mt-5">
     <h1 class="text-center mb-4">{{ title }}</h1>
+    <div class="text-white d-flex justify-content-center">
+
+      <div class="d-flex flex-column mx-2">
+        <label class="form-label" for="">Title</label>
+        <input class="form-control" type="text" name="">
+      </div>
+
+      <div class="d-flex flex-column mx-2">
+        <label class="form-label" for="">Author</label>
+        <input class="form-control" type="text" name="">
+      </div>
+
+      <div class="d-flex flex-column mx-2">
+        <label class="form-label" for="">Year</label>
+        <input class="form-control" type="text" name="">
+      </div>
+
+      <div class="d-flex flex-column mx-2">
+        <label class="form-label" for="">Genre</label>
+        <input class="form-control" type="text" name="">
+      </div>
+
+      <div class=" d-flex align-items-end">
+        <button class="btn btn-success ">Aggiungi</button>
+      </div>
+    </div>
     <div class="row">
       <div v-for="(album, index) in list" :key="index" class="col-md-4">
         <div class="card">
