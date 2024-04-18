@@ -47,7 +47,7 @@
 
 
       <div class=" d-flex align-items-end">
-        <button @click="addAlbum" class="btn btn-success ">Aggiungi</button>
+        <button @click.stop="addAlbum" class="btn btn-success ">Aggiungi</button>
       </div>
     </div>
     <div class="row">
@@ -59,7 +59,7 @@
             <p class="card-text author">{{ album.author }}</p>
             <p class="card-text">{{ album.genre }}</p>
             <p class="card-text">{{ album.year }}</p>
-            <button @click="removeAlbum(index)" class="btn trash"><i class="fa-solid fa-trash trash"></i></button>
+            <button @click.stop="removeAlbum(index)" class="btn trash"><i class="fa-solid fa-trash trash"></i></button>
           </div>
         </div>
       </div>

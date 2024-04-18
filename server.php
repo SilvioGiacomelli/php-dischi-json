@@ -16,8 +16,8 @@ function readAlbumsFromFile($filePath)
 }
 
 function saveAlbumsToFile($filePath, $albums)
-{ //JSON_PRETTY_PRINT serve per formattare il file json in modo che sia più leggibile
-  file_put_contents($filePath, json_encode($albums, JSON_PRETTY_PRINT));
+{
+  file_put_contents($filePath, json_encode($albums));
 }
 
 if (isset($_POST['title'])) {
@@ -49,4 +49,10 @@ if (isset($_POST['title'])) {
 
   $list = readAlbumsFromFile($jsonFilePath);
   echo json_encode($list);
+}
+
+if (isset($_POST['deleteAlbum'])) {
+  $removeAlbum = $_POST['deleteAlbum'];
+  array_splice($list, $removeAlbum, 1);
+  file_put_contents('dischi.json', json_encode($list));
 }
